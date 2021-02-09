@@ -1,0 +1,72 @@
+.list_container {
+    margin: 20px 0;
+    background-color: #eeeeee;
+}
+.list_container_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*图片轮播区域的样式*/
+.slider_box {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+.slide_wrapper {
+    height: 100%;
+    width: calc(100%*5);
+}
+.slide_wrapper img {
+    width: 20%;
+    height: 100%;
+}
+.img_box {
+    display: inline-block;
+}
+
+
+.left, .right {
+    width: 25%;
+    height: 80%;
+}
+.middle {
+    width: 50%;
+    height: 100%;
+}
+.slide_pagination {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -20px;
+}
+.slide_pagination li {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: red;
+    margin: 0 20px;
+}
+
+/* 推荐歌单 */
+.song_row {
+    display: flex;
+    height: 230px;
+}
+.song_item {
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+}
+.song_item img {
+    height: 200px;
+    width: 100%;
+    display: block;
+}
