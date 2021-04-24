@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RecommendList from './RecommendList';
+import NewestSongs from './NewestSongs';
 import img1 from '../../../../img/slide1.jpeg';
 import img2 from '../../../../img/slide2.jpeg';
 import img3 from '../../../../img/slide3.jpeg';
@@ -22,16 +23,18 @@ const Recommend = (props) => {
 
             {/* 推荐歌单 */}
             <div className="song_list_wrapper">
-                <RecommendList {...recommendSongList}></RecommendList>
+                <RecommendList {...recommendSongList} />
             </div>
 
             {/* 独家放送 */}
             <div>
-                <RecommendList {...vipSongList}></RecommendList>
+                <RecommendList {...vipSongList} />
             </div>
 
             {/* 最新音乐 */}
-            <div></div>
+            <div>
+                <NewestSongs {...newestSongList} />
+            </div>
         </div>
     );
 };

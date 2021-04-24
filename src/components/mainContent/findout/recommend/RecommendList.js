@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Header from './Header';
 import './index.css'
 
 const halfSplitArray = (arr) => {
@@ -48,18 +50,15 @@ const SongList = (props) => {
 export default (props) => {
     const { title, list } = props;
     const moreClickHandler = () => {
-
+        return;
     };
 
     return (
         <div className="list_container">
-            <div className="list_container_header">
-                <div className="list_container_title">{title}</div>
-                <div onClick={() => {moreClickHandler()}} className="list_container_more">
-                    <span>更多</span>
-                    <i></i>
-                </div>
-            </div>
+            <Header
+                title={title}
+                clickHandler={moreClickHandler}
+            />
             <div className="list_container_songs">
                 <SongList
                     list={list}

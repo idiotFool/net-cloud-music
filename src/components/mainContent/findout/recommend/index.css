@@ -67,3 +67,12 @@ ul, li {
     width: 100%;
     display: block;
 }
+
+/* 最新音乐 */
+.new_song_row {
+    display: flex;
+}
+.new_song_item {
+    flex: 1;
+    display: flex;
+}
