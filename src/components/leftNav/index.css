@@ -37,5 +37,6 @@ li {
 
 .main_content {
     width: 85%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }

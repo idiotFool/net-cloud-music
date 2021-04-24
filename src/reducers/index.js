@@ -1,8 +1,13 @@
-import leftNav from './leftNav_reducers';
-import recommend from './recommend_reducers'
 import { combineReducers } from 'redux';
+
+import leftNav from './leftNav_reducers';
+import recommendSongList from './recommendSongList';
+import vipSongList from './vipSongList'
+import newestSongList from './newestSongList';
 
 export default combineReducers({
     leftNav,
-    recommend,
+    recommendSongList,
+    vipSongList,
+    newestSongList
 })

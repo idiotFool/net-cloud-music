@@ -1,11 +1,37 @@
+.song_list_wrapper {
+    margin: 40px 0 20px 0;
+}
 .list_container {
     margin: 20px 0;
     background-color: #eeeeee;
 }
-.list_container_title {
+.list_container_header {
     display: flex;
     justify-content: space-between;
 }
+.list_container_title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.list_container_more {
+    font-size: 14px;
+    color: grey;
+    display: flex;
+    align-items: center;
+}
+.list_container_more i {
+    border: 1px solid grey;
+    width: 8px;
+    height: 8px;
+    border-left: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+}
+.list_container_songs {
+    margin: 0 -10px;
+}
+
 
 ul, li {
     list-style: none;
@@ -14,56 +40,27 @@ ul, li {
 }
 
 /*图片轮播区域的样式*/
-.slider_box {
+.slider_container {
     width: 100%;
     height: 300px;
-    position: relative;
-    overflow: hidden;
+    margin: 20px 0;
 }
-.slide_wrapper {
-    height: 100%;
-    width: calc(100%*5);
-}
-.slide_wrapper img {
-    width: 20%;
-    height: 100%;
-}
-.img_box {
-    display: inline-block;
+.slide_img {
+    height: 300px;
 }
 
-
-.left, .right {
-    width: 25%;
-    height: 80%;
-}
-.middle {
-    width: 50%;
-    height: 100%;
-}
-.slide_pagination {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: -20px;
-}
-.slide_pagination li {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: red;
-    margin: 0 20px;
-}
 
 /* 推荐歌单 */
 .song_row {
     display: flex;
-    height: 230px;
 }
 .song_item {
-    width: 20%;
-    height: 100%;
+    flex: 1;
     padding: 10px;
+}
+.song_item span {
+   position: relative;
+   top: 4px;
 }
 .song_item img {
     height: 200px;

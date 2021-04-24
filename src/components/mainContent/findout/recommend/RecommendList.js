@@ -46,18 +46,21 @@ const SongList = (props) => {
 };
 
 export default (props) => {
-    const { recommendTitle, list } = props;
+    const { title, list } = props;
     const moreClickHandler = () => {
 
     };
 
     return (
         <div className="list_container">
-            <div className="list_container_title">
-                <div>{recommendTitle}</div>
-                <div onClick={() => {moreClickHandler()}}>更多</div>
+            <div className="list_container_header">
+                <div className="list_container_title">{title}</div>
+                <div onClick={() => {moreClickHandler()}} className="list_container_more">
+                    <span>更多</span>
+                    <i></i>
+                </div>
             </div>
-            <div>
+            <div className="list_container_songs">
                 <SongList
                     list={list}
                 />
