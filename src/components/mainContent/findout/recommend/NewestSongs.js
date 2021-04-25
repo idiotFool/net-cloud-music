@@ -1,34 +1,43 @@
 import React, { Fragment} from 'react';
 import Header from './Header';
+import mvImg from '../../../../img/mv.svg'
+import settingImg from '../../../../img/setting.svg'
+import playImg from '../../../../img/play.svg'
 
 const SongsItem = (props) => {
-    const { idx, imgSrc, author, songName, album, hasVideo } = props;
+    const { showIdx, imgSrc, author, songName, album, hasVideo, rightBorder } = props;
+    console.log(props)
     return (
-        <ul className="new_song_item">
-            <li>{idx}</li>
-            <li>
-                <img src={imgSrc} />
-                <i></i>
+        <ul className={`new_song_item ${rightBorder}`}>
+            <li className="song_item_idx">{showIdx}</li>
+            <li className="song_item_img">
+                <img className="picture_img" src={imgSrc} />
+                <img className="play_img" src={playImg} />
             </li>
-            <li>
+            <li className="song_item_desc">
                 <p>{songName}</p>
                 <p>{`${author} - ${album}`}</p>
             </li>
-            <li className={!hasVideo ? 'song_video_hidden' : ''}></li>
-            <li></li>
+            <li className="song_item_mv">
+                <img src={hasVideo ? mvImg : ''} />
+            </li>
+            <li className="song_item_setting">
+                <img src={settingImg} />
+            </li>
         </ul>
     );
 }
 
 const SongsRow = (props) => {
-    const { rowData } = props;
+    const { rowData, stripe } = props;
     return (
-        <div className="new_song_row">
+        <div className={`new_song_row ${stripe}`}>
             {
-                rowData.map(item => {
+                rowData.map((item, idx) => {
                     return (
                         <SongsItem 
                             key={item.id}
+                            rightBorder={idx % 2 === 0 ? 'song_right_border' : ''}
                             {...item}
                         />
                     );
@@ -65,17 +74,20 @@ export default function NewestSongs(props) {
                 title={title}
                 clickHandler={moreClickHandler}
             />
-            {
-                covertDimension(list).map((item, idx) => {
-                    // 此处遍历的为二维数组，key值只能idx
-                    return (
-                        <SongsRow 
-                            key={idx}
-                            rowData={item}
-                        />
-                    );
-                })
-            }
+            <div className="new_song_wrapper">
+                {
+                    covertDimension(list).map((item, idx) => {
+                        // 此处遍历的为二维数组，key值只能idx
+                        return (
+                            <SongsRow 
+                                key={idx}
+                                stripe={idx % 2 === 0 ? 'new_song_even': 'new_song_odd'}
+                                rowData={item}
+                            />
+                        );
+                    })
+                }
+            </div>
         </Fragment>
     );
-}
+}    

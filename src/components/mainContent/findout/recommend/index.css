@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .song_list_wrapper {
     margin: 40px 0 20px 0;
 }
@@ -69,10 +73,59 @@ ul, li {
 }
 
 /* 最新音乐 */
+.new_song_wrapper{
+    border: 1px solid #c7c7c7;
+}
 .new_song_row {
     display: flex;
+    height: 80px;
 }
 .new_song_item {
     flex: 1;
     display: flex;
+    align-items: center;
+}
+.song_item_idx{
+    flex: 1;
+    text-align: center;
+    color: gray;
+    font-weight: 500;
+}
+.song_item_img {
+    flex: 2;
+    position: relative;
+    display: flex;
+}
+.song_item_img .picture_img {
+    width: 64px;
+    height: 64px;
+    display: flex;
+}
+.song_item_img .play_img {
+    position: absolute;
+    width: 14px;
+    bottom: 0;
+    left: 50px
+}
+.song_item_desc{
+    flex: 9
+}
+.song_item_mv, .song_item_setting{
+    flex: 1
+}
+.song_item_mv img {
+    height: 22px
+}
+.song_item_setting img{
+    height: 22px
+}
+.new_song_odd{
+    background: #f9f9f9
+
+}
+.new_song_even {
+    background: #e8e8e8
+}
+.song_right_border {
+    border-right: 1px solid #c7c7c7;
 }
