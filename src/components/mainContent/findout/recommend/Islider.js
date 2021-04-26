@@ -23,7 +23,7 @@ export default function Islider(props) {
                 data.map(item => {
                     return (
                         <div key={item}>
-                            <img src={item} style={{height: '300px', width: '100%'}} />
+                            <img src={item} style={{height: '300px', width: '100%'}} alt="" />
                         </div>
                     )
                 })

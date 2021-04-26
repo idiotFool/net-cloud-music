@@ -11,18 +11,18 @@ const SongsItem = (props) => {
         <ul className={`new_song_item ${rightBorder}`}>
             <li className="song_item_idx">{showIdx}</li>
             <li className="song_item_img">
-                <img className="picture_img" src={imgSrc} />
-                <img className="play_img" src={playImg} />
+                <img className="picture_img" src={imgSrc} alt="" />
+                <img className="play_img" src={playImg} alt="" />
             </li>
             <li className="song_item_desc">
-                <p>{songName}</p>
-                <p>{`${author} - ${album}`}</p>
+                <p className="desc_name">{songName}</p>
+                <p className="desc_album">{`${author} - ${album}`}</p>
             </li>
             <li className="song_item_mv">
-                <img src={hasVideo ? mvImg : ''} />
+                <img src={hasVideo ? mvImg : ''} alt="" />
             </li>
             <li className="song_item_setting">
-                <img src={settingImg} />
+                <img src={settingImg} alt="" />
             </li>
         </ul>
     );

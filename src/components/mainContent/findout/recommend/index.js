@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RecommendList from './RecommendList';
 import NewestSongs from './NewestSongs';
+import RadioAnchor from './RadioAnchor';
 import img1 from '../../../../img/slide1.jpeg';
 import img2 from '../../../../img/slide2.jpeg';
 import img3 from '../../../../img/slide3.jpeg';
@@ -11,8 +12,13 @@ import Islider from './Islider'
 import './index.css';
 
 const Recommend = (props) => {
-    const { recommendSongList, vipSongList,  newestSongList} = props;
-    console.log('recommendSongList', recommendSongList)
+    const { 
+        recommendSongList, 
+        vipSongList,  
+        newestSongList,
+        recommendMV,
+        radioAnchor
+    } = props;
 
     return (
         <div className="findout_box">
@@ -35,16 +41,34 @@ const Recommend = (props) => {
             <div>
                 <NewestSongs {...newestSongList} />
             </div>
+
+            {/* 推荐MV */}
+            <div>
+                <RecommendList {...recommendMV} />
+            </div>
+
+            {/* 主播电台 */}
+            <div>
+                <RadioAnchor {...radioAnchor} />
+            </div>
         </div>
     );
 };
 
 const mapStateToProps = (state) => {
-    const { recommendSongList, vipSongList, newestSongList } = state;
+    const { 
+        recommendSongList, 
+        vipSongList, 
+        newestSongList, 
+        recommendMV,
+        radioAnchor 
+    } = state;
     return {
         recommendSongList,
         vipSongList,
-        newestSongList
+        newestSongList,
+        recommendMV,
+        radioAnchor
     }
 };
 

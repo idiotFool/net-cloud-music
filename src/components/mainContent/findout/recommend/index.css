@@ -110,6 +110,16 @@ ul, li {
 .song_item_desc{
     flex: 9
 }
+.song_item_desc .desc_name {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 4px 0;
+}
+.song_item_desc .desc_album {
+    color: #8a8a8a;
+    font-size: 14px;
+    margin: 4px 0;
+} 
 .song_item_mv, .song_item_setting{
     flex: 1
 }
@@ -128,4 +138,14 @@ ul, li {
 }
 .song_right_border {
     border-right: 1px solid #c7c7c7;
+}
+
+/* 主播电台 */
+.radio_contriner {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 100px);
+}
+.radio_item  {
+    display: flex;
 }
