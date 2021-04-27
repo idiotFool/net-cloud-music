@@ -1,7 +1,3 @@
-.hidden {
-    display: none;
-}
-
 .song_list_wrapper {
     margin: 40px 0 20px 0;
 }
@@ -32,7 +28,7 @@
     border-bottom: none;
     transform: rotate(45deg);
 }
-.list_container_songs {
+.list_container_content {
     margin: 0 -10px;
 }
 
@@ -55,21 +51,33 @@ ul, li {
 
 
 /* 推荐歌单 */
-.song_row {
-    display: flex;
-}
-.song_item {
+.list_item {
     flex: 1;
     padding: 10px;
 }
-.song_item span {
+.list_item span {
    position: relative;
    top: 4px;
 }
-.song_item img {
+.list_item img {
     height: 200px;
     width: 100%;
     display: block;
+}
+.recommend_song_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(2, 260px);
+}
+.vip_song_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(1, 260px);
+}
+.recommend_mv_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(2, 260px);
 }
 
 /* 最新音乐 */
@@ -141,11 +149,47 @@ ul, li {
 }
 
 /* 主播电台 */
-.radio_contriner {
+.radio_container {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(2, 100px);
 }
-.radio_item  {
+.radio_item, .radio_item .radio_img_wrapper {
     display: flex;
+    align-items: center;
+}
+.radio_item img {
+    height: 80px;
+}
+.radio_item .radio_desc {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 4px 0;
+}
+.radio_item .radio_title {
+    color: #8a8a8a;
+    font-size: 14px;
+    margin: 4px 0;
+}
+.radio_item  .radio_text_wrapper {
+    padding-left: 20px;
+}
+
+/* 首页底部调整栏目顺序 */
+.bottom_seq_wrapper {
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+    padding: 0 0 30px 0;
+    margin-top: 30px;
+}
+.bottom_seq_wrapper .bottom_desc {
+    color: #8a8a8a;
+    font-size: 12px;
+}
+.bottom_seq_wrapper .sequence_btn {
+    outline: none;
+    border: 1px solid red;
+    color: red;
+    font-size: 14px;
+    padding: 4px 10px;
 }

@@ -5,12 +5,12 @@ const RadioItem = (props) => {
     const { desc, imgSrc, title } = props;;
     return (
         <ul className="radio_item">
-            <li>
+            <li className="radio_img_wrapper">
                 <img src={imgSrc} alt="" />
             </li>
-            <li>
-                <p>{desc}</p>
-                <p>{title}</p>
+            <li className="radio_text_wrapper">
+                <p className="radio_desc">{desc}</p>
+                <p className="radio_title">{title}</p>
             </li>
         </ul>
     );
@@ -28,7 +28,7 @@ export default function RadioAnchor(props) {
                 title={title}
                 clickHandler={moreClickHandler}
             />
-            <div className="radio_contriner">
+            <div className="radio_container">
                 {
                     list.map(item => {
                         return (

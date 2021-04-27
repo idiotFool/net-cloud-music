@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import RecommendList from './RecommendList';
 import NewestSongs from './NewestSongs';
 import RadioAnchor from './RadioAnchor';
+import Sequence from './Sequence';
 import img1 from '../../../../img/slide1.jpeg';
 import img2 from '../../../../img/slide2.jpeg';
 import img3 from '../../../../img/slide3.jpeg';
@@ -29,13 +30,11 @@ const Recommend = (props) => {
 
             {/* 推荐歌单 */}
             <div className="song_list_wrapper">
-                <RecommendList {...recommendSongList} />
+                <RecommendList {...recommendSongList} gridStyle="recommend_song_grid" />
             </div>
 
             {/* 独家放送 */}
-            <div>
-                <RecommendList {...vipSongList} />
-            </div>
+            <RecommendList {...vipSongList} gridStyle="vip_song_grid" />
 
             {/* 最新音乐 */}
             <div>
@@ -43,13 +42,16 @@ const Recommend = (props) => {
             </div>
 
             {/* 推荐MV */}
-            <div>
-                <RecommendList {...recommendMV} />
-            </div>
+            <RecommendList {...recommendMV} gridStyle="recommend_mv_grid" />
 
             {/* 主播电台 */}
             <div>
                 <RadioAnchor {...radioAnchor} />
+            </div>
+
+            {/* 调整显示模块 */}
+            <div className="bottom_seq_wrapper">
+                <Sequence />
             </div>
         </div>
     );
