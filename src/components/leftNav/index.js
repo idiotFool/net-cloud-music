@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import classnames from 'classnames';
 import { setNav } from '../../actions/leftNav_action';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 const LeftNavItem = (props) => {
@@ -26,30 +26,52 @@ const LeftNavItem = (props) => {
     )
 };
 
+// const LeftNav = (props) => {
+//     const { navItems, dispatch } = props;
+//     const clickHandler = id => {
+//         dispatch(setNav(id))
+//     };
+//     return (
+//         <div className="nav_container_wrapper">
+//             <ul className="nav_container">
+//                 {
+//                     navItems.map(item => {
+//                         return (
+//                             <LeftNavItem
+//                                 key={item.id}
+//                                 clickHandler={clickHandler}
+//                                 { ...item }
+//                             />
+//                         )
+//                     })
+//                 }
+//             </ul>
+//             <div className="main_content">
+//                 { props.children }
+//             </div>
+//         </div>
+//     );
+// };
+
 const LeftNav = (props) => {
     const { navItems, dispatch } = props;
     const clickHandler = id => {
         dispatch(setNav(id))
     };
     return (
-        <div className="nav_container_wrapper">
-            <ul className="nav_container">
-                {
-                    navItems.map(item => {
-                        return (
-                            <LeftNavItem
-                                key={item.id}
-                                clickHandler={clickHandler}
-                                { ...item }
-                            />
-                        )
-                    })
-                }
-            </ul>
-            <div className="main_content">
-                { props.children }
-            </div>
-        </div>
+        <ul className="nav_container">
+            {
+                navItems.map(item => {
+                    return (
+                        <LeftNavItem
+                            key={item.id}
+                            clickHandler={clickHandler}
+                            { ...item }
+                        />
+                    )
+                })
+            }
+        </ul>
     );
 };
 

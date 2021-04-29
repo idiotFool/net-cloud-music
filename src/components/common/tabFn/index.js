@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './index.css';
 import classnames from 'classnames';
 
 const TabItem = (props) => {
-    const { tabName, tabId, isActive, clickHandler } = props;
+    const { tabName, id, isActive, clickHandler, path } = props;
 
     return (
         <li
-            onClick={() => clickHandler(tabId)}
+            onClick={() => clickHandler(id)}
             className={classnames({'active': isActive})}
-        >{tabName}</li>
+        >
+            <Link to={path}>{tabName}</Link>
+        </li>
     );
 };
 
@@ -30,6 +33,7 @@ const Tabfn = (props) => {
                       isActive={active === item.id}
                       tabName={item.tabName}
                       clickHandler={clickHandler}
+                      {...item}
                   />
               })
           }

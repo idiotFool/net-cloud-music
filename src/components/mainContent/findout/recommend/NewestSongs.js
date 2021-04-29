@@ -6,7 +6,7 @@ import playImg from '../../../../img/play.svg'
 
 const SongsItem = (props) => {
     const { showIdx, imgSrc, author, songName, album, hasVideo, rightBorder } = props;
-    console.log(props)
+
     return (
         <ul className={`new_song_item ${rightBorder}`}>
             <li className="song_item_idx">{showIdx}</li>
@@ -76,15 +76,24 @@ export default function NewestSongs(props) {
             />
             <div className="new_song_wrapper">
                 {
-                    covertDimension(list).map((item, idx) => {
-                        // 此处遍历的为二维数组，key值只能idx
-                        return (
-                            <SongsRow 
-                                key={idx}
-                                stripe={idx % 2 === 0 ? 'new_song_even': 'new_song_odd'}
-                                rowData={item}
-                            />
-                        );
+                    // covertDimension(list).map((item, idx) => {
+                    //     // 此处遍历的为二维数组，key值只能idx
+                    //     return (
+                    //         <SongsRow 
+                    //             key={idx}
+                    //             stripe={idx % 2 === 0 ? 'new_song_even': 'new_song_odd'}
+                    //             rowData={item}
+                    //         />
+                    //     );
+                    // })
+
+                    list.map((item, idx) => {
+                        return <SongsItem 
+                            key={item.id}
+                            showIdx={idx + 1}
+                            rightBorder={idx % 2 === 0 ? 'song_right_border' : ''}
+                            {...item}
+                        />
                     })
                 }
             </div>

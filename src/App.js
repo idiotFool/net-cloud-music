@@ -6,7 +6,12 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import LeftNav from './components/leftNav';
 import FooterPlayer from './components/footerPlayer';
-import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+// import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from  'react-router-dom';
 
 // 发现栏对应的组件
 import Findout from './components/mainContent/findout';
@@ -36,27 +41,40 @@ const store = createStore(reducers, applyMiddleware(thunk));
 function App() {
   return (
       <Provider store={ store }>
-          <div className="app_container">
-              <Router history={browserHistory}>
-                  <Route path="/" component={LeftNav}>
-                      <IndexRoute component={Findout} />
-                      <Route path="/findout" component={Findout}>
-                          <IndexRoute component={Recommend} />
-                          <Route path="recommend" component={Recommend} />
-                          <Route path="songList" component={SongList} />
-                          <Route path="radioStation" component={RadioStation} />
-                          <Route path="ranks" component={Ranks} />
-                          <Route path="newSong" component={NewSong} />
-                      </Route>
-                      <Route path="/mv" component={MusicVideo} />
-                      <Route path="/mine" component={Mine} />
-                      <Route path="/friends" component={Friends} />
-                      <Route path="/account" component={Account} />
-                      <Route path="/personalFM" component={PersonalFM} />
-                  </Route>
-              </Router>
-              <FooterPlayer />
-          </div>
+          <Router>
+            <div className="app_container">
+                <div className="content_wrapper">
+                    <LeftNav />
+                    <div className="main_content">
+                        <Switch>
+                            <Route exact path="/">
+                                <Findout />
+                            </Route>
+                            <Route path="/findout">
+                                <Findout />
+                            </Route>
+                            <Route path="/mv">
+                                <MusicVideo />
+                            </Route>
+                            <Route path="/mine">
+                                <Mine />
+                            </Route>
+                            <Route path="/friends">
+                                <Friends />
+                            </Route>
+                            <Route path="/account">
+                                <Account />
+                            </Route>
+                            <Route path="/personalFM">
+                                <PersonalFM />
+                            </Route>
+                        </Switch>
+                    </div>
+                </div>
+
+                <FooterPlayer />
+            </div>
+          </Router>
     </Provider>
   );
 }

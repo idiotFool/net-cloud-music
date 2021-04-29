@@ -83,6 +83,9 @@ ul, li {
 /* 最新音乐 */
 .new_song_wrapper{
     border: 1px solid #c7c7c7;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(5, 80px);
 }
 .new_song_row {
     display: flex;
