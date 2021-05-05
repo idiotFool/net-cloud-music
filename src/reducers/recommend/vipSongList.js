@@ -1,7 +1,7 @@
-import vipSong1 from '../img/vipsong1.jpg';
-import vipSong2 from '../img/vipsong2.jpg';
-import vipSong3 from '../img/vipsong3.jpg';
-import vipSong4 from '../img/vipsong4.jpg';
+import vipSong1 from '../../img/vipsong1.jpg';
+import vipSong2 from '../../img/vipsong2.jpg';
+import vipSong3 from '../../img/vipsong3.jpg';
+import vipSong4 from '../../img/vipsong4.jpg';
 
 const initialState = {
     title: '独家放送',

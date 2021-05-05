@@ -87,12 +87,7 @@ ul, li {
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: repeat(5, 80px);
 }
-.new_song_row {
-    display: flex;
-    height: 80px;
-}
 .new_song_item {
-    flex: 1;
     display: flex;
     align-items: center;
 }
@@ -140,11 +135,10 @@ ul, li {
 .song_item_setting img{
     height: 22px
 }
-.new_song_odd{
+.new_song_even{
     background: #f9f9f9
-
 }
-.new_song_even {
+.new_song_odd {
     background: #e8e8e8
 }
 .song_right_border {

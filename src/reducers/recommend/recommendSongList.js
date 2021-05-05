@@ -1,13 +1,13 @@
-import song1 from '../img/song1.jpg';
-import song2 from '../img/song2.jpg';
-import song3 from '../img/song3.jpg';
-import song4 from '../img/song4.jpg';
-import song5 from '../img/song5.jpg';
-import song6 from '../img/song6.jpg';
-import song7 from '../img/song7.jpg';
-import song8 from '../img/song8.jpg';
-import song9 from '../img/song9.jpg';
-import song10 from '../img/song10.jpg';
+import song1 from '../../img/song1.jpg';
+import song2 from '../../img/song2.jpg';
+import song3 from '../../img/song3.jpg';
+import song4 from '../../img/song4.jpg';
+import song5 from '../../img/song5.jpg';
+import song6 from '../../img/song6.jpg';
+import song7 from '../../img/song7.jpg';
+import song8 from '../../img/song8.jpg';
+import song9 from '../../img/song9.jpg';
+import song10 from '../../img/song10.jpg';
 
 const initialState = {
     title: '推荐歌单',

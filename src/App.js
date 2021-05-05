@@ -6,7 +6,6 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import LeftNav from './components/leftNav';
 import FooterPlayer from './components/footerPlayer';
-// import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,11 +14,6 @@ import {
 
 // 发现栏对应的组件
 import Findout from './components/mainContent/findout';
-import Recommend from './components/mainContent/findout/recommend';
-import SongList from './components/mainContent/findout/songList';
-import RadioStation from './components/mainContent/findout/radioStation';
-import Ranks from './components/mainContent/findout/ranks';
-import NewSong from './components/mainContent/findout/newSong';
 
 // Mv栏对应的组件
 import MusicVideo from './components/mainContent/mv';
@@ -43,7 +37,7 @@ function App() {
       <Provider store={ store }>
           <Router>
             <div className="app_container">
-                <div className="content_wrapper">
+                <div className="content_container">
                     <LeftNav />
                     <div className="main_content">
                         <Switch>

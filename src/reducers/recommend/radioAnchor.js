@@ -1,9 +1,9 @@
-import rImg1 from '../img/radio1.jpg'
-import rImg2 from '../img/radio2.jpg'
-import rImg3 from '../img/radio3.jpg'
-import rImg4 from '../img/radio4.jpg'
-import rImg5 from '../img/radio6.jpg'
-import rImg6 from '../img/radio6.jpg'
+import rImg1 from '../../img/radio1.jpg'
+import rImg2 from '../../img/radio2.jpg'
+import rImg3 from '../../img/radio3.jpg'
+import rImg4 from '../../img/radio4.jpg'
+import rImg5 from '../../img/radio6.jpg'
+import rImg6 from '../../img/radio6.jpg'
 
 const initialState = {
     title: '主播电台',

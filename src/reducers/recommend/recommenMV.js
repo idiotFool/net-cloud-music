@@ -1,11 +1,11 @@
-import mvImg1 from '../img/mv1.jpg'
-import mvImg2 from '../img/mv2.jpg'
-import mvImg3 from '../img/mv3.jpg'
-import mvImg4 from '../img/mv4.jpg'
-import mvImg5 from '../img/mv6.jpg'
-import mvImg6 from '../img/mv6.jpg'
-import mvImg7 from '../img/mv7.jpg'
-import mvImg8 from '../img/mv8.jpg'
+import mvImg1 from '../../img/mv1.jpg'
+import mvImg2 from '../../img/mv2.jpg'
+import mvImg3 from '../../img/mv3.jpg'
+import mvImg4 from '../../img/mv4.jpg'
+import mvImg5 from '../../img/mv6.jpg'
+import mvImg6 from '../../img/mv6.jpg'
+import mvImg7 from '../../img/mv7.jpg'
+import mvImg8 from '../../img/mv8.jpg'
 
 const initialState = {
     title: '推荐MV',

@@ -1,13 +1,13 @@
-import img1 from '../img/new1.jpg'
-import img2 from '../img/new2.jpg'
-import img3 from '../img/new3.jpg'
-import img4 from '../img/new4.jpg'
-import img5 from '../img/new5.jpg'
-import img6 from '../img/new6.jpg'
-import img7 from '../img/new7.jpg'
-import img8 from '../img/new8.jpg'
-import img9 from '../img/new9.jpg'
-import img10 from '../img/new10.jpg'
+import img1 from '../../img/new1.jpg'
+import img2 from '../../img/new2.jpg'
+import img3 from '../../img/new3.jpg'
+import img4 from '../../img/new4.jpg'
+import img5 from '../../img/new5.jpg'
+import img6 from '../../img/new6.jpg'
+import img7 from '../../img/new7.jpg'
+import img8 from '../../img/new8.jpg'
+import img9 from '../../img/new9.jpg'
+import img10 from '../../img/new10.jpg'
 
 const initialState = {
     title: '最新音乐',

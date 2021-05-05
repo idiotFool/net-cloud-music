@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
 
+// 发现/推荐
 import leftNav from './leftNav_reducers';
-import recommendSongList from './recommendSongList';
-import vipSongList from './vipSongList'
-import newestSongList from './newestSongList';
-import recommendMV from './recommenMV';
-import radioAnchor from './radioAnchor';
+import recommendSongList from './recommend/recommendSongList';
+import vipSongList from './recommend/vipSongList'
+import newestSongList from './recommend/newestSongList';
+import recommendMV from './recommend/recommenMV';
+import radioAnchor from './recommend/radioAnchor';
+
+// 发现/歌单
+import songType from './songList/songType';
 
 export default combineReducers({
     leftNav,
@@ -13,5 +17,6 @@ export default combineReducers({
     vipSongList,
     newestSongList,
     recommendMV,
-    radioAnchor
+    radioAnchor,
+    songType
 })
