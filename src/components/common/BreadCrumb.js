@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import './BreadCrumb.sass';
+import { connect } from 'react-redux'
 
 const TabItem = ({tabName}) => {
     return (
@@ -11,7 +12,7 @@ const TabItem = ({tabName}) => {
     );
 };
 
-export default function BreadCrumb(props) {
+const BreadCrumb = (props) => {
     const { tabItems } = props;
 
     return (
@@ -26,5 +27,17 @@ export default function BreadCrumb(props) {
           }
       </ul>
     );
+}
+
+const mapStateToProps = (state) => {
+    return {
+
+    };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatch
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(BreadCrumb)
