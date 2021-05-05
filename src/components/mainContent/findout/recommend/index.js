@@ -10,7 +10,7 @@ import img3 from '../../../../img/slide3.jpeg';
 import img4 from '../../../../img/slide4.jpeg';
 import img5 from '../../../../img/slide5.jpeg';
 import Islider from './Islider'
-import './index.css';
+import './index.sass'
 
 const Recommend = (props) => {
     const { 

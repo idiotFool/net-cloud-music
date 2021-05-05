@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Tabfn from '../common/tabFn';
-import './index.css'
+import './index.sass'
 
 const MainContent = () => {
     // const tabItems = [{

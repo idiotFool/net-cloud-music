@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css';
+import './index.sass';
 import classnames from 'classnames';
 
 const TabItem = (props) => {

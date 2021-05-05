@@ -1,6 +1,6 @@
-import React from 'react';
-import Header from './Header';
-import './index.css'
+import React from 'react'
+import Header from './Header'
+import './index.sass'
 
 // 推荐歌单、独家放送、推荐MV使用同一个组件
 const ListItem = (props) => {

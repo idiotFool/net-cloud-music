@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './index.css'
+import './index.sass'
 
 const FooterPlayer = () => {
     return (

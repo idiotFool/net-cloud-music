@@ -10,7 +10,7 @@ import SongList from './songList';
 import RadioStation from './radioStation';
 import Ranks from './ranks';
 import NewSong from './newSong';
-import './index.css';
+import './index.sass';
 
 export default function Findout() {
     const { path, url } = useRouteMatch();

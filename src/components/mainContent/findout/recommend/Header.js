@@ -1,5 +1,5 @@
-import React from 'react';
-import './index.css';
+import React from 'react'
+import './index.sass'
 
 export default function Header(props) {
     const { title, clickHandler } = props;

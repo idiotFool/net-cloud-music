@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../../../common/Header';
 import BreadCrumb from '../../../common/BreadCrumb';
 import chooseImg from '../../../../img/setting.svg';
-import './index.css'
+import './index.sass'
 
 const SongList = ({type}) => {
     const tabItems = [{

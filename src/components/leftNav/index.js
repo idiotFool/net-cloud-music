@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import classnames from 'classnames';
 import { setNav } from '../../actions/leftNav_action';
 import { Link } from 'react-router-dom';
-import './index.css';
+import './index.sass';
 
 const LeftNavItem = (props) => {
     const {
