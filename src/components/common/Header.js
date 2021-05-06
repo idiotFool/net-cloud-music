@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.css';
+import './header.sass';
 
 export default function Header({render, isShowI=false, title}) {
     return (

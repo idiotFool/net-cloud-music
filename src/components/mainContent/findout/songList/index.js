@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Header from '../../../common/Header';
 import BreadCrumb from '../../../common/BreadCrumb';
 import * as songTypeActionCreators from '../../../../actions/songList/actionCreators';
-import RecommendList  from '../recommend/RecommendList';
+import Songs from '../../../common/Songs';
+
 import chooseImg from '../../../../img/setting.svg';
 import './index.sass'
 
@@ -53,6 +54,10 @@ const SongList = (props) => {
             />
 
             {/* 内容展示区域 */}
+            <Songs
+                list={songList}
+                gridStyle="song_list_grid"
+            />
         </div>
     );
 }
