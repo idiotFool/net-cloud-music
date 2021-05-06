@@ -10,6 +10,7 @@ import radioAnchor from './recommend/radioAnchor';
 
 // 发现/歌单
 import songType from './songList/songType';
+import songList from './songList/songList'
 
 export default combineReducers({
     leftNav,
@@ -18,5 +19,7 @@ export default combineReducers({
     newestSongList,
     recommendMV,
     radioAnchor,
-    songType
+    
+    songType,
+    songList
 })

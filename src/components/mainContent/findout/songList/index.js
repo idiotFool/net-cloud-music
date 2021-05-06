@@ -1,11 +1,16 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../../../common/Header';
 import BreadCrumb from '../../../common/BreadCrumb';
+import * as songTypeActionCreators from '../../../../actions/songList/actionCreators';
+import RecommendList  from '../recommend/RecommendList';
 import chooseImg from '../../../../img/setting.svg';
 import './index.sass'
 
-const SongList = ({type}) => {
+const SongList = (props) => {
+    console.log('songlist props', props)
+    const { type, changeSongType, songList } = props;
     const tabItems = [{
         tabName: '华语',
         id: 0
@@ -22,6 +27,9 @@ const SongList = ({type}) => {
         tabName: '电子',
         id: 4
     }];
+    const handleClick = (currentTab) => {
+        changeSongType(currentTab);
+    }
 
     return (
         <div className="content_wrapper">
@@ -31,7 +39,10 @@ const SongList = ({type}) => {
                 render={() => {
                     return (
                         <div className="header_right_render">
-                            <BreadCrumb tabItems={tabItems} />
+                            <BreadCrumb 
+                                tabItems={tabItems}
+                                clickHandler={handleClick}
+                            />
                             <button className="choose_type">
                                 <img src={chooseImg} alt="" />
                                 <label>选择分类</label>
@@ -40,23 +51,25 @@ const SongList = ({type}) => {
                     );
                 }}
             />
+
+            {/* 内容展示区域 */}
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
-    console.log('state->',state)
     const { songType: {
         type
-    } } = state;
+    }, songList } = state;
     return {
-        type
+        type,
+        songList
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        dispatch
+        ...bindActionCreators(songTypeActionCreators, dispatch)
     }
 }
 

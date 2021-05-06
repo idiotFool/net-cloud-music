@@ -4,16 +4,16 @@ import classnames from 'classnames';
 import './BreadCrumb.sass';
 import { connect } from 'react-redux'
 
-const TabItem = ({tabName}) => {
+const TabItem = ({tabName, clickHandler}) => {
     return (
-        <li>
+        <li onClick={() => clickHandler(tabName)}>
             {tabName}
         </li>
     );
 };
 
 const BreadCrumb = (props) => {
-    const { tabItems } = props;
+    const { tabItems, clickHandler } = props;
 
     return (
       <ul className="bread_crumb_container">
@@ -22,6 +22,7 @@ const BreadCrumb = (props) => {
                   return <TabItem
                       key={item.id}
                       {...item}
+                      clickHandler={clickHandler}
                   />
               })
           }
@@ -29,15 +30,4 @@ const BreadCrumb = (props) => {
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatch
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(BreadCrumb)
+export default BreadCrumb;
