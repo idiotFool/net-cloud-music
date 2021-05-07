@@ -5,13 +5,59 @@ import Header from '../../../common/Header';
 import BreadCrumb from '../../../common/BreadCrumb';
 import * as songTypeActionCreators from '../../../../actions/songList/actionCreators';
 import Songs from '../../../common/Songs';
+import { createPortal } from 'react-dom';
 
 import chooseImg from '../../../../img/setting.svg';
 import './index.sass'
 
+const CateSub = ({ name }) => {
+    return <button>{name}</button>
+}
+
+const Sub = ({ category, categoryList }) => {
+    console.log(' categoryList',  categoryList)
+    return (
+        <div>
+            <div>{category}</div>
+            {
+                categoryList.map(cate => {
+                    return <CateSub 
+                        key={cate.id}
+                        {...cate}
+                    />
+                })
+            }
+        </div>
+    );
+}
+
+const Children = ({ list }) => {
+    console.log('cate->', list)
+    return (
+        <div>
+            <p>全部歌单</p>
+            {
+                list.map(item => {
+                    return <sub 
+                        key={item.category}
+                        {...item}
+                    />
+                })
+            }
+        </div>
+    )
+}
+
+const SongTypeModal = ({ list }) => {
+    return createPortal(
+        <Children list={list} />,
+        document.getElementById('root')
+    );
+};
+
 const SongList = (props) => {
     console.log('songlist props', props)
-    const { type, changeSongType, songList } = props;
+    const { type, changeSongType, songList, songCategory } = props;
     const tabItems = [{
         tabName: '华语',
         id: 0
@@ -58,6 +104,8 @@ const SongList = (props) => {
                 list={songList}
                 gridStyle="song_list_grid"
             />
+
+            <SongTypeModal list={songCategory} />
         </div>
     );
 }
@@ -65,10 +113,11 @@ const SongList = (props) => {
 const mapStateToProps = (state) => {
     const { songType: {
         type
-    }, songList } = state;
+    }, songList, songCategory } = state;
     return {
         type,
-        songList
+        songList,
+        songCategory
     }
 }
 
