@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Header from '../../../common/Header';
@@ -10,35 +10,38 @@ import { createPortal } from 'react-dom';
 import chooseImg from '../../../../img/setting.svg';
 import './index.sass'
 
-const CateSub = ({ name }) => {
+const ModalListItem = ({ name }) => {
     return <button>{name}</button>
 }
 
-const Sub = ({ category, categoryList }) => {
-    console.log(' categoryList',  categoryList)
+const ModalList = ({ category, categoryList, categoryImg }) => {
     return (
-        <div>
-            <div>{category}</div>
-            {
-                categoryList.map(cate => {
-                    return <CateSub 
-                        key={cate.id}
-                        {...cate}
-                    />
-                })
-            }
+        <div className="modal_content">
+            <div className="title">
+                <img src={categoryImg} alt="" />
+                <p>{category}</p>
+            </div>
+            <div className="category">
+                {
+                    categoryList.map(cate => {
+                        return <ModalListItem 
+                            key={cate.id}
+                            {...cate}
+                        />
+                    })
+                }
+            </div>
         </div>
     );
 }
 
-const Children = ({ list }) => {
-    console.log('cate->', list)
+const ModalContainer = ({ list, show }) => {
     return (
-        <div>
-            <p>全部歌单</p>
+        <div className={`modal_container ${show ? '' : 'modal_hide'}`}>
+            <h4>全部歌单</h4>
             {
                 list.map(item => {
-                    return <sub 
+                    return <ModalList 
                         key={item.category}
                         {...item}
                     />
@@ -48,15 +51,14 @@ const Children = ({ list }) => {
     )
 }
 
-const SongTypeModal = ({ list }) => {
+const SongTypeModal = (props) => {
     return createPortal(
-        <Children list={list} />,
+        <ModalContainer {...props} />,
         document.getElementById('root')
     );
 };
 
 const SongList = (props) => {
-    console.log('songlist props', props)
     const { type, changeSongType, songList, songCategory } = props;
     const tabItems = [{
         tabName: '华语',
@@ -77,6 +79,27 @@ const SongList = (props) => {
     const handleClick = (currentTab) => {
         changeSongType(currentTab);
     }
+    const [showState, setShowState] = useState(false)
+
+    useEffect(() => {
+        // 此处需要在document上注册click事件，当点击document时，关闭modal
+        // 点击chooseCate节点也是使用addEventListener原生方法，目的是担心与使用onClick的react合成事件有冲突产生意外的bug（不确定会不会有bug，以及什么样的bug）
+        // 所以统一采用addEventListener方法
+        const handlerFn = (evt) => {
+            if (evt.target.id === 'chooseCate' || evt.target.htmlFor === 'chooseCate') {
+                setShowState(!showState)
+            } else {
+                setShowState(false)
+            }
+        }
+        document.addEventListener('click', handlerFn)
+        document.getElementById('chooseCate').addEventListener('click', handlerFn)
+
+        return () => {
+            document.removeEventListener('click', handlerFn)
+            document.getElementById('chooseCate').removeEventListener('click', handlerFn)
+        }
+    })
 
     return (
         <div className="content_wrapper">
@@ -90,9 +113,9 @@ const SongList = (props) => {
                                 tabItems={tabItems}
                                 clickHandler={handleClick}
                             />
-                            <button className="choose_type">
+                            <button className="choose_type" id="chooseCate">
                                 <img src={chooseImg} alt="" />
-                                <label>选择分类</label>
+                                <label htmlFor="chooseCate">选择分类</label>
                             </button>
                         </div>
                     );
@@ -105,7 +128,7 @@ const SongList = (props) => {
                 gridStyle="song_list_grid"
             />
 
-            <SongTypeModal list={songCategory} />
+            <SongTypeModal list={songCategory} show={showState} />
         </div>
     );
 }

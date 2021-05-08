@@ -18,3 +18,46 @@
 .song_list_grid
     display: grid
     grid-template-columns: repeat(5, 20%)
+.modal_hide
+    display: none
+.modal_container
+    position: absolute
+    border: 1px solid #ccc
+    padding: 30px
+    border-radius: 4px
+    box-shadow: 0 0 15px #888888
+    background: #fff
+    width: 70%
+    margin-left: 15%
+    top: 100px
+    z-index: 1
+    h4
+        margin: 0
+        text-align: center
+        border: 1px solid #ccc
+        padding: 8px 0
+        font-size: 18px
+        font-family: emoji
+        font-weight: 400
+    .modal_content
+        display: flex
+        margin: 15px 0
+        .title
+            flex: 1
+            color: #f53131
+            img
+                width: 30px
+            p
+                margin: 0
+        .category
+            flex: 20
+            display: grid
+            grid-template-columns: repeat(10, 10%)
+            button
+                margin: 0 5px 10px 0
+                outline: none
+                background: none
+                border: 1px solid #ccc
+                padding: 10px
+                height: 40px
+        

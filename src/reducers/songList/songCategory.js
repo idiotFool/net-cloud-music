@@ -1,5 +1,12 @@
+import langImg from '../../img/song_lang.svg'
+import styleImg from '../../img/song_style.svg'
+import sceneImg from '../../img/song_scene.svg'
+import emotionImg from '../../img/song_emotion.svg'
+import themeImg from '../../img/song_theme.svg'
+
 const initialState = [{
     category: '语种',
+    categoryImg: langImg, 
     categoryList: [{
         name: '华语',
         id: 0,
@@ -23,6 +30,7 @@ const initialState = [{
     }]
 }, {
     category: '风格',
+    categoryImg: styleImg, 
     categoryList: [{
         name: '流行',
         id: 0,
@@ -114,6 +122,7 @@ const initialState = [{
     }]
 }, {
     category: '场景',
+    categoryImg: sceneImg,
     categoryList: [{
         name: '清晨',
         id: 0,
@@ -165,6 +174,7 @@ const initialState = [{
     }]
 }, {
     category: '情感',
+    categoryImg: emotionImg,
     categoryList: [{
         name: '怀旧',
         id: 0,
@@ -216,6 +226,7 @@ const initialState = [{
     }]
 }, {
     category: '主题',
+    categoryImg: themeImg,
     categoryList: [{
         name: '综艺',
         id: 0,
