@@ -14,27 +14,27 @@ import './index.sass';
 
 export default function Findout() {
     const { path, url } = useRouteMatch();
-    console.log(path, url)
+    const pathRoot = '/findout';
     const tabItems = [{
         tabName: '推荐',
         id: 'tab_0',
-        path: `${url}/recommend`
+        path: `${pathRoot}/recommend`
     }, {
         tabName: '歌单',
         id: 'tab_1',
-        path: `${url}/songList`
+        path: `${pathRoot}/songList`
     },{
         tabName: '电台',
         id: 'tab_2',
-        path: `${url}/radio`
+        path: `${pathRoot}/radio`
     },{
         tabName: '排行榜',
         id: 'tab_3',
-        path: `${url}/ranks`
+        path: `${pathRoot}/ranks`
     },{
         tabName: '新歌',
         id: 'tab_4',
-        path: `${url}/new`
+        path: `${pathRoot}/new`
     }];
 
     return (
@@ -56,22 +56,25 @@ export default function Findout() {
             </div>
             
             <Switch>
-                <Route exact path={path}>
+                <Route exact path="/">
                     <Recommend />
                 </Route>
-                <Route path={`${path}/recommend`}>
+                <Route exact path={pathRoot}>
                     <Recommend />
                 </Route>
-                <Route path={`${path}/songList`}>
+                <Route path={`${pathRoot}/recommend`}>
+                    <Recommend />
+                </Route>
+                <Route path={`${pathRoot}/songList`}>
                     <SongList />
                 </Route>
-                <Route path={`${path}/radio`}>
+                <Route path={`${pathRoot}/radio`}>
                     <RadioStation />
                 </Route>
-                <Route path={`${path}/ranks`}>
+                <Route path={`${pathRoot}/ranks`}>
                     <Ranks />
                 </Route>
-                <Route path={`${path}/new`}>
+                <Route path={`${pathRoot}/new`}>
                     <NewSong />
                 </Route>
             </Switch>
