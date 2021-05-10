@@ -1,8 +1,23 @@
 import React from 'react';
 import Slider from "react-slick"
+import RadioRanks from './RadioRanks';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import './index.sass';
+
+import emotionImg from '../../../../img/radio_emotion.svg'
+import storyImg from '../../../../img/radio_story.svg'
+import soundImg from '../../../../img/radio_sound.svg'
+import singImg from '../../../../img/radio_sing.svg'
+import dramaImg from '../../../../img/radio_drama.svg'
+import showImg from '../../../../img/radio_show.svg'
+import talkImg from '../../../../img/radio_talk.svg'
+import eleImg from '../../../../img/radio_elec.svg'
+import restImg from '../../../../img/radio_rest.svg'
+import hiImg from '../../../../img/radio_hi.svg'
+import alarmImg from '../../../../img/radio_alarm.svg'
+import otherImg from '../../../../img/radio_other.svg'
+import playerImg from '../../../../img/radio_player.svg'
 
 /**
  * @description 将一个一维数组slice为多个长度为len的一维数组组成的二维数组
@@ -20,8 +35,10 @@ const sliceArray = (array, len) => {
 
 const SlideItem = ({ id, imgUrl, desc }) => {
     return (
-        <div>
-            <img src={imgUrl} alt="" />
+        <div className="slide_item">
+            <div className="img_wrapper">
+                <img src={imgUrl} alt="" />
+            </div>
             <p>{ desc }</p>
         </div>
     );
@@ -54,55 +71,55 @@ const RadioSlide = () => {
     };
     const data = [{
         id: 0,
-        imgUrl: '',
+        imgUrl: emotionImg,
         desc: '情感调频'
     }, {
         id: 1,
-        imgUrl: '',
+        imgUrl: storyImg,
         desc: '音乐故事'
     }, {
         id: 2,
-        imgUrl: '',
+        imgUrl: soundImg,
         desc: '声音恋人'
     }, {
         id: 3,
-        imgUrl: '',
+        imgUrl: singImg,
         desc: '创作翻唱'
     }, {
         id: 4,
-        imgUrl: '',
+        imgUrl: dramaImg,
         desc: '声之剧场'
     }, {
         id: 5,
-        imgUrl: '',
+        imgUrl: showImg,
         desc: '脱口秀'
     }, {
         id: 6,
-        imgUrl: '',
+        imgUrl: talkImg,
         desc: '侃侃而谈'
     }, {
         id: 7,
-        imgUrl: '',
+        imgUrl: eleImg,
         desc: '电音趴'
     }, {
         id: 8,
-        imgUrl: '',
+        imgUrl: restImg,
         desc: '助眠解压'
     }, {
         id: 9,
-        imgUrl: '',
+        imgUrl: hiImg,
         desc: '你好爱豆'
     }, {
         id: 10,
-        imgUrl: '',
+        imgUrl: alarmImg,
         desc: '铃声'
     }, {
         id: 11,
-        imgUrl: '',
+        imgUrl: otherImg,
         desc: '其他'
     }, {
         id: 12,
-        imgUrl: '',
+        imgUrl: playerImg,
         desc: '我要做主播'
     }];
 
@@ -127,6 +144,8 @@ export default function RadioStation() {
             <div className="radio_slide">
                 <RadioSlide />
             </div>
+
+            <RadioRanks />
         </div>
     );
 }
