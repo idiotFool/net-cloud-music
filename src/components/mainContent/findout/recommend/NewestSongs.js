@@ -1,6 +1,7 @@
 import React, { Fragment} from 'react';
-import classnames from 'classnames';
-import Header from './Header';
+import Header from '../../../common/Header'
+import More from '../../../common/More'
+
 import mvImg from '../../../../img/mv.svg'
 import settingImg from '../../../../img/setting.svg'
 import playImg from '../../../../img/play.svg'
@@ -29,6 +30,7 @@ const SongsItem = (props) => {
     );
 }
 
+
 export default function NewestSongs(props) {
     const { title, list } = props;
     const moreClickHandler = () => {
@@ -42,7 +44,9 @@ export default function NewestSongs(props) {
         <Fragment>
             <Header 
                 title={title}
-                clickHandler={moreClickHandler}
+                render={() => {
+                    return <More clickHandler={moreClickHandler} />
+                }}
             />
             <div className="new_song_wrapper">
                 {

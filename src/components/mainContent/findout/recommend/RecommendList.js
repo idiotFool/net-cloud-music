@@ -1,5 +1,6 @@
 import React from 'react'
-import Header from './Header'
+import Header from '../../../common/Header'
+import More from '../../../common/More'
 import './index.sass'
 
 // 推荐歌单、独家放送、推荐MV使用同一个组件
@@ -23,7 +24,9 @@ export default (props) => {
         <div className="list_container">
             <Header
                 title={title}
-                clickHandler={moreClickHandler}
+                render={() => {
+                    return <More clickHandler={moreClickHandler} />
+                }}
             />
             <div className={`list_container_content ${gridStyle}`}>
                 {

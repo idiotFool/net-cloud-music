@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import Header from './Header';
+import Header from '../../../common/Header';
+import More from '../../../common/More';
 
 const RadioItem = (props) => {
     const { desc, imgSrc, title } = props;;
@@ -26,7 +27,9 @@ export default function RadioAnchor(props) {
         <Fragment>
             <Header 
                 title={title}
-                clickHandler={moreClickHandler}
+                render={() => {
+                    return <More clickHandler={moreClickHandler} />
+                }}
             />
             <div className="radio_container">
                 {
