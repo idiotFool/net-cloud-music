@@ -1,8 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RecommendList from './RecommendList';
 import NewestSongs from './NewestSongs';
-import RadioAnchor from './RadioAnchor';
+
+import Header from '../../../common/Header';
+import More from '../../../common/More';
+import ImgLeftTextRight from '../../../common/ImgLeftTextRight'
+import ImgTopTextBottom from  '../../../common/ImgTopTextBottom'
+
 import Sequence from './Sequence';
 import img1 from '../../../../img/slide1.jpeg';
 import img2 from '../../../../img/slide2.jpeg';
@@ -20,6 +24,9 @@ const Recommend = (props) => {
         recommendMV,
         radioAnchor
     } = props;
+    const moreClickHandler = () => {
+        return;
+    }
 
     return (
         <div className="findout_box">
@@ -30,11 +37,27 @@ const Recommend = (props) => {
 
             {/* 推荐歌单 */}
             <div className="song_list_wrapper">
-                <RecommendList {...recommendSongList} gridStyle="recommend_song_grid" />
+                <div className="list_container">
+                    <Header
+                        title={recommendSongList.title}
+                        render={() => {
+                            return <More clickHandler={moreClickHandler} />
+                        }}
+                    />
+                    <ImgTopTextBottom list={recommendSongList.list} gridStyle="recommend_song_grid" />
+                </div>
             </div>
 
             {/* 独家放送 */}
-            <RecommendList {...vipSongList} gridStyle="vip_song_grid" />
+            <div className="list_container">
+                <Header
+                    title={vipSongList.title}
+                    render={() => {
+                        return <More clickHandler={moreClickHandler} />
+                    }}
+                />
+                <ImgTopTextBottom list={vipSongList.list} gridStyle="vip_song_grid" />
+            </div>
 
             {/* 最新音乐 */}
             <div>
@@ -42,11 +65,25 @@ const Recommend = (props) => {
             </div>
 
             {/* 推荐MV */}
-            <RecommendList {...recommendMV} gridStyle="recommend_mv_grid" />
+            <div className="list_container">
+                <Header
+                    title={recommendMV.title}
+                    render={() => {
+                        return <More clickHandler={moreClickHandler} />
+                    }}
+                />
+                <ImgTopTextBottom list={recommendMV.list} gridStyle="recommend_mv_grid" />
+            </div>
 
             {/* 主播电台 */}
             <div>
-                <RadioAnchor {...radioAnchor} />
+                <Header 
+                    title={radioAnchor.title}
+                    render={() => {
+                        return <More clickHandler={moreClickHandler} />
+                    }}
+                />
+                <ImgLeftTextRight list={radioAnchor.list} />
             </div>
 
             {/* 调整显示模块 */}

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Header from '../../../common/Header';
 import BreadCrumb from '../../../common/BreadCrumb';
 import * as songTypeActionCreators from '../../../../actions/songList/actionCreators';
-import Songs from '../../../common/Songs';
+import ImgTopTextBottom from '../../../common/ImgTopTextBottom';
 import { createPortal } from 'react-dom';
 
 import chooseImg from '../../../../img/setting.svg';
@@ -123,7 +123,7 @@ const SongList = (props) => {
             />
 
             {/* 内容展示区域 */}
-            <Songs
+            <ImgTopTextBottom
                 list={songList}
                 gridStyle="song_list_grid"
             />
