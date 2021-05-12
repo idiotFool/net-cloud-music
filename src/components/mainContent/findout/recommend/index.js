@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {
+    Fragment
+} from 'react';
 import { connect } from 'react-redux';
 import NewestSongs from './NewestSongs';
-
 import Header from '../../../common/Header';
 import More from '../../../common/More';
 import ImgLeftTextRight from '../../../common/ImgLeftTextRight'
 import ImgTopTextBottom from  '../../../common/ImgTopTextBottom'
-
 import Sequence from './Sequence';
 import img1 from '../../../../img/slide1.jpeg';
 import img2 from '../../../../img/slide2.jpeg';
@@ -15,6 +15,21 @@ import img4 from '../../../../img/slide4.jpeg';
 import img5 from '../../../../img/slide5.jpeg';
 import Islider from './Islider'
 import './index.sass'
+
+// gridStyle属性决定当前元素的栅格布局方式
+const MixContent = ({title, list, gridStyle, moreClickHandler}) => {
+    return (
+        <div className="list_container">
+            <Header
+                title={title}
+                render={() => {
+                    return <More clickHandler={moreClickHandler} />
+                }}
+            />
+            <ImgTopTextBottom list={list} gridStyle={gridStyle} />
+        </div>
+    );
+}
 
 const Recommend = (props) => {
     const { 
@@ -37,27 +52,11 @@ const Recommend = (props) => {
 
             {/* 推荐歌单 */}
             <div className="song_list_wrapper">
-                <div className="list_container">
-                    <Header
-                        title={recommendSongList.title}
-                        render={() => {
-                            return <More clickHandler={moreClickHandler} />
-                        }}
-                    />
-                    <ImgTopTextBottom list={recommendSongList.list} gridStyle="recommend_song_grid" />
-                </div>
+                <MixContent {...recommendSongList} gridStyle="recommend_song_grid" moreClickHandler={moreClickHandler} />
             </div>
 
             {/* 独家放送 */}
-            <div className="list_container">
-                <Header
-                    title={vipSongList.title}
-                    render={() => {
-                        return <More clickHandler={moreClickHandler} />
-                    }}
-                />
-                <ImgTopTextBottom list={vipSongList.list} gridStyle="vip_song_grid" />
-            </div>
+            <MixContent {...vipSongList} gridStyle="vip_song_grid" moreClickHandler={moreClickHandler} />
 
             {/* 最新音乐 */}
             <div>
@@ -65,15 +64,7 @@ const Recommend = (props) => {
             </div>
 
             {/* 推荐MV */}
-            <div className="list_container">
-                <Header
-                    title={recommendMV.title}
-                    render={() => {
-                        return <More clickHandler={moreClickHandler} />
-                    }}
-                />
-                <ImgTopTextBottom list={recommendMV.list} gridStyle="recommend_mv_grid" />
-            </div>
+            <MixContent {...recommendMV} gridStyle="recommend_mv_grid" moreClickHandler={moreClickHandler} />
 
             {/* 主播电台 */}
             <div>
