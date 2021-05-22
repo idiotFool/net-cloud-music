@@ -1,3 +1,6 @@
+/**
+ * module 【发现】
+ */
 import React from 'react';
 import TabFn from '../../common/tabFn';
 import {

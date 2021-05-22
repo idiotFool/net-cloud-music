@@ -4,7 +4,7 @@
 import React from 'react';
 import './ImgLeftTextRight.sass';
 
-const RadioItem = (props) => {
+const ListItem = (props) => {
     const { desc, imgSrc, title } = props;;
     return (
         <ul className="left_right_item">
@@ -19,13 +19,13 @@ const RadioItem = (props) => {
     );
 }
 
-export default function({list}) {
+export default function ImgLeftTextRight({list, gridStyle}) {
     return (
-        <div className="left_right_container">
+        <div className={gridStyle}>
             {
                 list.map(item => {
                     return (
-                        <RadioItem
+                        <ListItem
                             key={item.id}
                             {...item}
                         />

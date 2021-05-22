@@ -1,6 +1,13 @@
+/**
+ * module 发现/电台
+ */
 import React from 'react';
+import { connect } from 'react-redux';
 import Slider from "react-slick"
 import RadioRanks from './RadioRanks';
+import ImgLeftTextRight from '../../../common/ImgLeftTextRight';
+import ImgTopTextBottom from '../../../common/ImgTopTextBottom';
+import Header from '../../../common/Header';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import './index.sass';
@@ -138,7 +145,11 @@ const RadioSlide = () => {
     );
 }
 
-export default function RadioStation() {
+const RadioStation = ({radioAnchor, recommendSongList}) => {
+    const moreClickHandler = () => {
+        return;
+    }
+
     return (
         <div className="radio_station_container">
             <div className="radio_slide">
@@ -146,6 +157,53 @@ export default function RadioStation() {
             </div>
 
             <RadioRanks />
+
+            {/* 精彩界面推荐 */}
+            <div className="radio_nice_recommend">
+                <Header
+                    isShowI={true} 
+                    title={"精彩界面推荐"}
+                />
+                <ImgLeftTextRight list={radioAnchor.list.slice(0, 4)} gridStyle="column2_row2" />
+            </div>
+
+            {/* 精选电台-谈情说爱 */}
+            <div className="list_container">
+                <Header
+                    title={"精选电台-谈情说爱"}
+                    isShowI={true}
+                />
+                <ImgTopTextBottom list={recommendSongList.list.slice(0, 5)} gridStyle="column5_row1" />
+            </div>
+
+
+            {/* 热门电台 */}
+            <div className="list_container">
+                <Header
+                    title={"热门电台"}
+                    isShowI={true}
+                />
+                <ImgTopTextBottom list={recommendSongList.list} gridStyle="column5_rowN" />
+            </div>
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    const { 
+        recommendSongList, 
+        radioAnchor 
+    } = state;
+    return {
+        radioAnchor,
+        recommendSongList
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatch
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RadioStation)

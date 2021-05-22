@@ -9,7 +9,7 @@ export default function Header({render, isShowI=false, title}) {
                 <div className="">{title}</div>
             </div>
             {
-                render()
+                typeof render === 'function' && render()
             }
         </div>
     );

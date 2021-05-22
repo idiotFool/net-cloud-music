@@ -1,0 +1,60 @@
+.hidden
+    display: none
+
+.showFlex
+    display: flex
+
+.new_song_wrapper
+    border: 1px solid #c7c7c7
+    display: grid
+    grid-template-columns: repeat(2, 50%)
+    grid-template-rows: repeat(5, 80px)
+
+.new_song_item
+    display: flex
+    align-items: center
+    height: 100%
+
+.song_item_idx
+    flex: 1
+    text-align: center
+    color: gray
+    font-weight: 500
+
+.song_item_img
+    flex: 2
+    position: relative
+    .picture_img
+        width: 64px
+        height: 64px
+        display: flex
+    .play_img
+        position: absolute
+        width: 14px
+        bottom: 0
+        left: 50px
+
+.song_item_desc
+    flex: 9
+    .desc_name
+        font-weight: 500
+        font-size: 18px
+        margin: 4px 0
+    .desc_album
+        color: #8a8a8a
+        font-size: 14px
+        margin: 4px 0
+
+.song_item_mv, .song_item_setting
+    flex: 1
+    img
+        height: 22px
+
+.new_song_even
+    background: #fefefe
+
+.new_song_odd
+    background: #f5f5f5
+
+.song_right_border
+    border-right: 1px solid #c7c7c7

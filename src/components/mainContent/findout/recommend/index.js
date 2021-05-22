@@ -1,13 +1,17 @@
+/**
+ * module 发现/推荐
+ */
 import React, {
     Fragment
 } from 'react';
 import { connect } from 'react-redux';
-import NewestSongs from './NewestSongs';
 import Header from '../../../common/Header';
 import More from '../../../common/More';
 import ImgLeftTextRight from '../../../common/ImgLeftTextRight'
 import ImgTopTextBottom from  '../../../common/ImgTopTextBottom'
 import Sequence from './Sequence';
+import NewSongList from '../../../common/NewSongList';
+
 import img1 from '../../../../img/slide1.jpeg';
 import img2 from '../../../../img/slide2.jpeg';
 import img3 from '../../../../img/slide3.jpeg';
@@ -52,19 +56,25 @@ const Recommend = (props) => {
 
             {/* 推荐歌单 */}
             <div className="song_list_wrapper">
-                <MixContent {...recommendSongList} gridStyle="recommend_song_grid" moreClickHandler={moreClickHandler} />
+                <MixContent {...recommendSongList} gridStyle="column5_row2" moreClickHandler={moreClickHandler} />
             </div>
 
             {/* 独家放送 */}
-            <MixContent {...vipSongList} gridStyle="vip_song_grid" moreClickHandler={moreClickHandler} />
+            <MixContent {...vipSongList} gridStyle="column4_row1" moreClickHandler={moreClickHandler} />
 
             {/* 最新音乐 */}
             <div>
-                <NewestSongs {...newestSongList} />
+                <Header 
+                    title={newestSongList.title}
+                    render={() => {
+                        return <More clickHandler={moreClickHandler} />
+                    }}
+                />
+                <NewSongList list={newestSongList.list} isShowImg={true} />
             </div>
 
             {/* 推荐MV */}
-            <MixContent {...recommendMV} gridStyle="recommend_mv_grid" moreClickHandler={moreClickHandler} />
+            <MixContent {...recommendMV} gridStyle="column4_row2" moreClickHandler={moreClickHandler} />
 
             {/* 主播电台 */}
             <div>
@@ -74,7 +84,7 @@ const Recommend = (props) => {
                         return <More clickHandler={moreClickHandler} />
                     }}
                 />
-                <ImgLeftTextRight list={radioAnchor.list} />
+                <ImgLeftTextRight list={radioAnchor.list} gridStyle="column2_row3" />
             </div>
 
             {/* 调整显示模块 */}

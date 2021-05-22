@@ -1,3 +1,6 @@
+/**
+ * module 发现/歌单
+ */
 import React, { useEffect, useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
