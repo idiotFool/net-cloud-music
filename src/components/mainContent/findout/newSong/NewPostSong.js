@@ -49,7 +49,7 @@ const SongList = ({ songList, type='all' }) => {
     return (
         <div className="main_wrapper">
             <PlayHeader />
-            <NewSongList list={songList}  />
+            <NewSongList list={songList} stripe='even' />
         </div>
     );
 }
@@ -92,9 +92,9 @@ export default function NewPostSong({ songList }) {
                     initActiveId={tabItems[0].id}
                     styleProps={style}
                 />
-
-                <SongList type={type} songList={songList} />
             </div>
+
+            <SongList type={type} songList={songList} />
         </div>
     );
 }

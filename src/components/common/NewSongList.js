@@ -14,12 +14,12 @@ const SongsItem = (props) => {
         album, 
         hasVideo, 
         rightBorder, 
-        isEven,
+        bgColorClassName,
         isShowImg
     } = props;
 
     return (
-        <ul className={`new_song_item ${rightBorder} ${isEven ? 'new_song_even' : 'new_song_odd'}`} >
+        <ul className={`new_song_item ${rightBorder} ${bgColorClassName}`} >
             <li className="song_item_idx">{showIdx}</li>
             {/* 直接在song_item_img设置flex，hidden设置会失败 */}
             <li className={`song_item_img ${isShowImg ? 'showFlex' : 'hidden'}`} >
@@ -40,9 +40,15 @@ const SongsItem = (props) => {
     );
 }
 
-export default function NewSongList({ list, isShowImg=false }) {
-    const isEvenRow = (idx) => {
-        return [2, 3, 6, 7].includes(idx)
+/**
+ * @param {stripe} 表示条纹的显示的颜色的行为奇数还是偶数（以较深的颜色为基准），取值为odd与even，默认为odd
+ * @returns 
+ */
+export default function NewSongList({ list, isShowImg=false, stripe='odd' }) {
+    // 从0行算起，所以取余为0时为奇数行，不为0时为偶数行
+    // 此处除2是由于每行显示两个数据，与栅格布局相关
+    const getRowType = (idx) => {
+        return Math.floor(idx / 2) % 2 === 0 ? 'odd' : 'even'; 
     }
 
     return (
@@ -53,7 +59,7 @@ export default function NewSongList({ list, isShowImg=false }) {
                         key={item.id}
                         showIdx={idx + 1}
                         rightBorder={idx % 2 === 0 ? 'song_right_border' : ''}
-                        isEven={isEvenRow(idx)}
+                        bgColorClassName={getRowType(idx) === stripe ? 'new_song_dark' : 'new_song_light'}
                         isShowImg={isShowImg}
                         {...item}
                     />
