@@ -1,0 +1,14 @@
+.mv_container
+    padding: 0 15px
+    .new_mv_grid
+        display: grid
+        grid-template-columns: repeat(4, 25%)
+        grid-template-rows: repeat(1, 200px)
+        grid-auto-flow: column dense
+        grid-row-gap: 20px
+    .list_item:first-child
+        grid-row-start: 1
+        grid-row-end: 3
+        grid-column-start: 1
+        grid-column-end: 3
+

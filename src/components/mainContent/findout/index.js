@@ -13,6 +13,7 @@ import SongList from './songList';
 import RadioStation from './radioStation';
 import Ranks from './ranks';
 import NewSong from './newSong';
+import Serach from '../../common/Search';
 import './index.sass';
 
 export default function Findout() {
@@ -51,10 +52,7 @@ export default function Findout() {
                     />
                 </div>
                 <div className="search-btn">
-                    <div className="search-text">
-                        <i></i>
-                        <span>搜索</span>
-                    </div>
+                    <Serach />
                 </div>
             </div>
             
