@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classnames from 'classnames';
-import './BreadCrumb.sass';
+import { bread_crumb_container } from './BreadCrumb.module.sass';
 import { connect } from 'react-redux'
 
 const TabItem = ({tabName, clickHandler}) => {
@@ -16,7 +15,7 @@ const BreadCrumb = (props) => {
     const { tabItems, clickHandler } = props;
 
     return (
-      <ul className="bread_crumb_container">
+      <ul className={bread_crumb_container}>
           {
               tabItems.map(item => {
                   return <TabItem

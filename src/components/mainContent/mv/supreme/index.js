@@ -9,7 +9,10 @@ import img3 from '../../../../img/newMv3.jpg';
 import img4 from '../../../../img/newMv4.jpg';
 import img5 from '../../../../img/newMv5.jpg';
 
-import './index.sass'
+import {
+    mv_container,
+    new_mv_grid
+} from './index.module.sass'
 
 const supremeList = [{
     id: 0,
@@ -43,7 +46,7 @@ export default function Supreme() {
         return;
     }
     return (
-        <div className="mv_container">
+        <div className={mv_container}>
             {/* 最新MV */}
             <Fragment>
                 <Header 
@@ -53,7 +56,7 @@ export default function Supreme() {
                         return <More clickHandler={moreClickHandler} />
                     }}
                 />
-                <ImgTopTextBottom list={supremeList} gridStyle="new_mv_grid" />
+                <ImgTopTextBottom list={supremeList} gridStyle={new_mv_grid} />
             </Fragment>
 
             {/* 热播MV */}

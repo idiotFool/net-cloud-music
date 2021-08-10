@@ -18,12 +18,22 @@ import img3 from '../../../../img/slide3.jpeg';
 import img4 from '../../../../img/slide4.jpeg';
 import img5 from '../../../../img/slide5.jpeg';
 import Islider from './Islider'
-import './index.sass'
+import {
+    list_container,
+    findout_box,
+    slider_container,
+    song_list_wrapper,
+    column5_row2,
+    column4_row1,
+    column4_row2,
+    column2_row3,
+    bottom_seq_wrapper
+} from './index.module.sass'
 
 // gridStyle属性决定当前元素的栅格布局方式
 const MixContent = ({title, list, gridStyle, moreClickHandler}) => {
     return (
-        <div className="list_container">
+        <div className={list_container}>
             <Header
                 title={title}
                 render={() => {
@@ -48,19 +58,19 @@ const Recommend = (props) => {
     }
 
     return (
-        <div className="findout_box">
+        <div className={findout_box}>
             {/* 图片轮播区域 */}
-            <div className="slider_container">
+            <div className={slider_container}>
                 <Islider data={[img1, img2, img3, img4, img5]} />
             </div>
 
             {/* 推荐歌单 */}
-            <div className="song_list_wrapper">
-                <MixContent {...recommendSongList} gridStyle="column5_row2" moreClickHandler={moreClickHandler} />
+            <div className={song_list_wrapper}>
+                <MixContent {...recommendSongList} gridStyle={column5_row2} moreClickHandler={moreClickHandler} />
             </div>
 
             {/* 独家放送 */}
-            <MixContent {...vipSongList} gridStyle="column4_row1" moreClickHandler={moreClickHandler} />
+            <MixContent {...vipSongList} gridStyle={column4_row1} moreClickHandler={moreClickHandler} />
 
             {/* 最新音乐 */}
             <div>
@@ -74,7 +84,7 @@ const Recommend = (props) => {
             </div>
 
             {/* 推荐MV */}
-            <MixContent {...recommendMV} gridStyle="column4_row2" moreClickHandler={moreClickHandler} />
+            <MixContent {...recommendMV} gridStyle={column4_row2} moreClickHandler={moreClickHandler} />
 
             {/* 主播电台 */}
             <div>
@@ -84,11 +94,11 @@ const Recommend = (props) => {
                         return <More clickHandler={moreClickHandler} />
                     }}
                 />
-                <ImgLeftTextRight list={radioAnchor.list} gridStyle="column2_row3" />
+                <ImgLeftTextRight list={radioAnchor.list} gridStyle={column2_row3} />
             </div>
 
             {/* 调整显示模块 */}
-            <div className="bottom_seq_wrapper">
+            <div className={bottom_seq_wrapper}>
                 <Sequence />
             </div>
         </div>

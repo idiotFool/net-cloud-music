@@ -1,5 +1,9 @@
 import React from 'react';
-import './App.sass';
+import {
+    app_container,
+    content_container,
+    main_content
+} from './App.module.sass';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
@@ -36,10 +40,10 @@ function App() {
   return (
       <Provider store={ store }>
           <Router>
-            <div className="app_container">
-                <div className="content_container">
+            <div className={app_container}>
+                <div className={content_container}>
                     <LeftNav />
-                    <div className="main_content">
+                    <div className={main_content}>
                         <Switch>
                             <Route exact path="/">
                                 <Findout />

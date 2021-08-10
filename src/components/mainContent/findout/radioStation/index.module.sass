@@ -1,6 +1,7 @@
 .radio_station_container
     padding: 15px 20px
-    .radio_slide>.slick-slider
+    // 此处覆盖修改第三方的样式，设置高度
+    .radio_slide>div
         height: 225px
     .radio_nice_recommend
         margin: 30px 0
@@ -33,7 +34,6 @@
     .column5_row1
         display: grid
         grid-template-columns: repeat(5, 20%)
-        grid-template-rows: repeat(1, 260px)
     .slide_page
         display: grid
         grid-template-columns: repeat(6, 16.7%)
@@ -52,4 +52,6 @@
     .column5_rowN
         display: grid
         grid-template-columns: repeat(5, 20%)
-        
+
+.list_container
+    margin: 20px 0       

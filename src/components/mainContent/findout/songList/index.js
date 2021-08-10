@@ -11,7 +11,17 @@ import ImgTopTextBottom from '../../../common/ImgTopTextBottom';
 import { createPortal } from 'react-dom';
 
 import chooseImg from '../../../../img/setting.svg';
-import './index.sass'
+import {
+    modal_content,
+    modal_title,
+    modal_item_category,
+    modal_container,
+    modal_hide,
+    content_wrapper,
+    header_right_render,
+    choose_type,
+    song_list_grid
+} from './index.module.sass'
 
 const ModalListItem = ({ name }) => {
     return <button>{name}</button>
@@ -19,12 +29,12 @@ const ModalListItem = ({ name }) => {
 
 const ModalList = ({ category, categoryList, categoryImg }) => {
     return (
-        <div className="modal_content">
-            <div className="title">
+        <div className={modal_content}>
+            <div className={modal_title}>
                 <img src={categoryImg} alt="" />
                 <p>{category}</p>
             </div>
-            <div className="category">
+            <div className={modal_item_category}>
                 {
                     categoryList.map(cate => {
                         return <ModalListItem 
@@ -40,7 +50,7 @@ const ModalList = ({ category, categoryList, categoryImg }) => {
 
 const ModalContainer = ({ list, show }) => {
     return (
-        <div className={`modal_container ${show ? '' : 'modal_hide'}`}>
+        <div className={`${modal_container} ${show ? '' : modal_hide}`}>
             <h4>全部歌单</h4>
             {
                 list.map(item => {
@@ -105,18 +115,18 @@ const SongList = (props) => {
     })
 
     return (
-        <div className="content_wrapper">
+        <div className={content_wrapper}>
             <Header 
                 isShowI={true}
                 title={type}
                 render={() => {
                     return (
-                        <div className="header_right_render">
+                        <div className={header_right_render}>
                             <BreadCrumb 
                                 tabItems={tabItems}
                                 clickHandler={handleClick}
                             />
-                            <button className="choose_type" id="chooseCate">
+                            <button className={choose_type} id="chooseCate">
                                 <img src={chooseImg} alt="" />
                                 <label htmlFor="chooseCate">选择分类</label>
                             </button>
@@ -128,7 +138,7 @@ const SongList = (props) => {
             {/* 内容展示区域 */}
             <ImgTopTextBottom
                 list={songList}
-                gridStyle="song_list_grid"
+                gridStyle={song_list_grid}
             />
 
             <SongTypeModal list={songCategory} show={showState} />

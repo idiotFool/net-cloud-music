@@ -1,5 +1,22 @@
 import React from 'react';
-import './NewSongList.sass';
+import { 
+    new_song_item,
+    song_item_idx,
+    song_item_img,
+    show_flex,
+    hidden_item,
+    picture_img,
+    play_img,
+    song_item_desc,
+    desc_name,
+    desc_album,
+    song_item_mv,
+    song_item_setting,
+    new_song_wrapper,
+    song_right_border,
+    new_song_dark,
+    new_song_light
+} from './NewSongList.module.sass';
 
 import mvImg from '../../img/mv.svg'
 import settingImg from '../../img/setting.svg'
@@ -19,21 +36,21 @@ const SongsItem = (props) => {
     } = props;
 
     return (
-        <ul className={`new_song_item ${rightBorder} ${bgColorClassName}`} >
-            <li className="song_item_idx">{showIdx}</li>
+        <ul className={`${new_song_item} ${rightBorder} ${bgColorClassName}`} >
+            <li className={song_item_idx}>{showIdx}</li>
             {/* 直接在song_item_img设置flex，hidden设置会失败 */}
-            <li className={`song_item_img ${isShowImg ? 'showFlex' : 'hidden'}`} >
-                <img className="picture_img" src={imgSrc} alt="" />
-                <img className="play_img" src={playImg} alt="" />
+            <li className={`${song_item_img} ${isShowImg ? show_flex : hidden_item}`} >
+                <img className={picture_img} src={imgSrc} alt="" />
+                <img className={play_img} src={playImg} alt="" />
             </li>
-            <li className="song_item_desc">
-                <p className="desc_name">{songName}</p>
-                <p className="desc_album">{`${author} - ${album}`}</p>
+            <li className={song_item_desc}>
+                <p className={desc_name}>{songName}</p>
+                <p className={desc_album}>{`${author} - ${album}`}</p>
             </li>
-            <li className="song_item_mv">
+            <li className={song_item_mv}>
                 <img src={hasVideo ? mvImg : ''} alt="" />
             </li>
-            <li className="song_item_setting">
+            <li className={song_item_setting}>
                 <img src={settingImg} alt="" />
             </li>
         </ul>
@@ -52,14 +69,14 @@ export default function NewSongList({ list, isShowImg=false, stripe='odd' }) {
     }
 
     return (
-        <div className="new_song_wrapper">
+        <div className={new_song_wrapper}>
             {
                 list.map((item, idx) => {
                     return <SongsItem 
                         key={item.id}
                         showIdx={idx + 1}
-                        rightBorder={idx % 2 === 0 ? 'song_right_border' : ''}
-                        bgColorClassName={getRowType(idx) === stripe ? 'new_song_dark' : 'new_song_light'}
+                        rightBorder={idx % 2 === 0 ? song_right_border : ''}
+                        bgColorClassName={getRowType(idx) === stripe ? new_song_dark : new_song_light}
                         isShowImg={isShowImg}
                         {...item}
                     />

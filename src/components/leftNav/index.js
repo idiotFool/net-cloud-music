@@ -3,7 +3,11 @@ import { connect } from 'react-redux'
 import classnames from 'classnames';
 import { setNav } from '../../actions/leftNav_action';
 import { Link } from 'react-router-dom';
-import './index.sass';
+import {
+    active as nav_item_active,
+    nav_item_icon,
+    nav_container
+} from './index.module.sass';
 
 const LeftNavItem = (props) => {
     const {
@@ -15,11 +19,11 @@ const LeftNavItem = (props) => {
     } = props;
     return (
         <li
-            className={classnames({'active': active})}
+            className={classnames({[nav_item_active]: active})}
             onClick={() => {clickHandler(id)}}
         >
             <Link to={router}>
-                <p className="icon"></p>
+                <p className={nav_item_icon}></p>
                 <label>{ tabName }</label>
             </Link>
         </li>
@@ -33,7 +37,7 @@ const LeftNav = (props) => {
         dispatch(setNav(id))
     };
     return (
-        <ul className="nav_container">
+        <ul className={nav_container}>
             {
                 navItems.map(item => {
                     return (

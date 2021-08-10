@@ -10,7 +10,18 @@ import ImgTopTextBottom from '../../../common/ImgTopTextBottom';
 import Header from '../../../common/Header';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import './index.sass';
+import {
+    slide_item,
+    img_wrapper,
+    slide_page,
+    radio_station_container,
+    radio_slide,
+    radio_nice_recommend,
+    column2_row2,
+    column5_row1,
+    column5_rowN,
+    list_container
+} from './index.module.sass';
 
 import emotionImg from '../../../../img/radio_emotion.svg'
 import storyImg from '../../../../img/radio_story.svg'
@@ -42,8 +53,8 @@ const sliceArray = (array, len) => {
 
 const SlideItem = ({ id, imgUrl, desc }) => {
     return (
-        <div className="slide_item">
-            <div className="img_wrapper">
+        <div className={slide_item}>
+            <div className={img_wrapper}>
                 <img src={imgUrl} alt="" />
             </div>
             <p>{ desc }</p>
@@ -53,7 +64,7 @@ const SlideItem = ({ id, imgUrl, desc }) => {
 
 const SlidePage = ({ list }) => {
     return (
-        <div className="slide_page">
+        <div className={slide_page}>
             {
                 list.map(item => {
                     return <SlideItem
@@ -151,39 +162,39 @@ const RadioStation = ({radioAnchor, recommendSongList}) => {
     }
 
     return (
-        <div className="radio_station_container">
-            <div className="radio_slide">
+        <div className={radio_station_container}>
+            <div className={radio_slide}>
                 <RadioSlide />
             </div>
 
             <RadioRanks />
 
             {/* 精彩界面推荐 */}
-            <div className="radio_nice_recommend">
+            <div className={radio_nice_recommend}>
                 <Header
                     isShowI={true} 
                     title={"精彩界面推荐"}
                 />
-                <ImgLeftTextRight list={radioAnchor.list.slice(0, 4)} gridStyle="column2_row2" />
+                <ImgLeftTextRight list={radioAnchor.list.slice(0, 4)} gridStyle={column2_row2} />
             </div>
 
             {/* 精选电台-谈情说爱 */}
-            <div className="list_container">
+            <div className={list_container}>
                 <Header
                     title={"精选电台-谈情说爱"}
                     isShowI={true}
                 />
-                <ImgTopTextBottom list={recommendSongList.list.slice(0, 5)} gridStyle="column5_row1" />
+                <ImgTopTextBottom list={recommendSongList.list.slice(0, 5)} gridStyle={column5_row1} />
             </div>
 
 
             {/* 热门电台 */}
-            <div className="list_container">
+            <div className={list_container}>
                 <Header
                     title={"热门电台"}
                     isShowI={true}
                 />
-                <ImgTopTextBottom list={recommendSongList.list} gridStyle="column5_rowN" />
+                <ImgTopTextBottom list={recommendSongList.list} gridStyle={column5_rowN} />
             </div>
         </div>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './index.sass'
+import { footer_player_container } from './index.module.sass'
 
 const FooterPlayer = () => {
     return (
-        <div className="footer_player_container">
+        <div className={footer_player_container}>
 
         </div>
     )

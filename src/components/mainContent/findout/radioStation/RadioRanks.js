@@ -1,5 +1,10 @@
 import React from 'react';
-import './index.sass'
+import {
+    radio_rank,
+    title,
+    sub_title,
+    top_one
+} from './index.module.sass'
 
 import arrowImg from '../../../../img/arrow_right.svg'
 import radio1 from '../../../../img/radio1.jpg';
@@ -18,18 +23,18 @@ export default function RadioRanks() {
         imgSrc: radio3
     },];
     return (
-        <div className="radio_rank">
+        <div className={radio_rank}>
             <div>
-                <p className="title">
+                <p className={title}>
                     <span>主播电台排行榜</span>
                     <img src={arrowImg} alt="" />
                 </p>
-                <p className="sub_title">最火的节目和电台，每天更新</p>
+                <p className={sub_title}>最火的节目和电台，每天更新</p>
             </div>
             <ul>
                 {
                     top3.map((item, idx) => {
-                        return <li key={item.id} className={idx === 1 ? 'top_one' : ''}>
+                        return <li key={item.id} className={idx === 1 ? top_one : ''}>
                             <img src={item.imgSrc} alt=""/>
                         </li>
                     })

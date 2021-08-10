@@ -1,9 +1,9 @@
 import React from 'react';
-import './More.sass';
+import { header_more } from './More.module.sass';
 
 export default function More({clickHandler}) {
     return (
-        <div onClick={clickHandler} className="header_more">
+        <div onClick={clickHandler} className={header_more}>
             <span>更多</span>
             <i></i>
         </div>

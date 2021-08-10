@@ -14,7 +14,11 @@ import RadioStation from './radioStation';
 import Ranks from './ranks';
 import NewSong from './newSong';
 import Serach from '../../common/Search';
-import './index.sass';
+import {
+    findout_header,
+    tab_wrapper,
+    search_btn
+} from './index.module.sass';
 
 export default function Findout() {
     const { path, url } = useRouteMatch();
@@ -43,15 +47,15 @@ export default function Findout() {
 
     return (
         <div>
-            <div className="findout-header">
-                <div className="tab-wrapper">
+            <div className={findout_header}>
+                <div className={tab_wrapper}>
                     <TabFn
                         tabItems={tabItems}
                         initActiveId={tabItems[0].id}
                         styleProps={{height: '36px'}}
                     />
                 </div>
-                <div className="search-btn">
+                <div className={search_btn}>
                     <Serach />
                 </div>
             </div>

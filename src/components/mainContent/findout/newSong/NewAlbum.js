@@ -1,6 +1,10 @@
 import React from 'react';
 import ImgTopTextBottom from '../../../common/ImgTopTextBottom';
-import './index.sass';
+import {
+    album_desc_container,
+    new_album_list,
+    column4_rowN
+} from './index.module.sass';
 import album1 from '../../../../img/album1.jpg'
 import album2 from '../../../../img/album2.jpg'
 import album3 from '../../../../img/album3.jpg'
@@ -12,7 +16,7 @@ import album8 from '../../../../img/album8.jpg'
 
 const Desc = ({album, author}) => {
     return (
-        <div className="album-desc-container">
+        <div className={album_desc_container}>
             <span>{album}</span>
             <span>{author}</span>
         </div>
@@ -113,12 +117,12 @@ export default function NewAlbum() {
             {
               data.map(item => {
                   return (
-                      <div className="new-album-list" key={item.time}>
+                      <div className={new_album_list} key={item.time}>
                           <p>{item.time}</p>
                           <div>
                               <ImgTopTextBottom 
                                 list={item.list} 
-                                gridStyle="column4_rowN" 
+                                gridStyle={column4_rowN} 
                                 render={props => <Desc {...props} />}
                               />
                           </div>

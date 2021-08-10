@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './index.sass';
+import { active as nav_active, tab_container} from './index.module.sass';
 import classnames from 'classnames';
 
 const TabItem = (props) => {
@@ -10,7 +10,7 @@ const TabItem = (props) => {
     return (
         <li
             onClick={() => clickHandler(id)}
-            className={classnames({'active': isActive})}
+            className={classnames({[nav_active]: isActive})}
         >
             <Link to={path}>{tabName}</Link>
         </li>
@@ -24,7 +24,7 @@ const Tabfn = (props) => {
         setActive(tabId)
     };
     return (
-      <ul className="tab_container" style={styleProps}>
+      <ul className={tab_container} style={styleProps}>
           {
               tabItems.map(item => {
                   return <TabItem

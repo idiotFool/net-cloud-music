@@ -11,7 +11,7 @@ import {
     Route,
     useHistory
 } from 'react-router-dom';
-import './index.sass';
+import {new_song_container} from './index.module.sass';
 
 const NewSong = ({ newestSongList }) => {
     const rootPath = '/findout/new';
@@ -26,10 +26,9 @@ const NewSong = ({ newestSongList }) => {
         active: false,
         path: `${rootPath}/album`
     }]
-    console.log(newestSongList, 'songlist')
 
     return (
-        <div className="new_song_container">
+        <div className={new_song_container}>
              {/* 顶部导航 */}
             <Toptab tabList={tabList}/>
 

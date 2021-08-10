@@ -7,6 +7,13 @@ import qs from 'query-string';
 import playImg from '../../../../img/play_black.svg';
 import addImg from '../../../../img/add.svg'
 
+import {
+    play_header,
+    main_wrapper,
+    song_wrapper,
+    nav_container
+} from './index.module.sass';
+
 const useQuery = () => {
     return qs.parse(useLocation().search);
 }
@@ -31,7 +38,7 @@ const PlayHeader = () => {
         img: addImg
     }];
     return (
-        <ul className="play_header">
+        <ul className={play_header}>
             {
                 headerContents.map(item => {
                     return <PlayItem 
@@ -47,7 +54,7 @@ const PlayHeader = () => {
 const SongList = ({ songList, type='all' }) => {
     
     return (
-        <div className="main_wrapper">
+        <div className={main_wrapper}>
             <PlayHeader />
             <NewSongList list={songList} stripe='even' />
         </div>
@@ -85,8 +92,8 @@ export default function NewPostSong({ songList }) {
     const { type } = useQuery();
 
     return (
-        <div className="song_wrapper">
-            <div className="nav_container">
+        <div className={song_wrapper}>
+            <div className={nav_container}>
                 <TabFn
                     tabItems={tabItems}
                     initActiveId={tabItems[0].id}
